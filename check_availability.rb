@@ -21,15 +21,13 @@ client = ManageIQ::Messaging::Client.open({
   :encoding => "json"
 })
 
-x-rh-identity = ENV.fetch("X-RH-IDENTITY")
-
 payload = { :params => {
     :source_id => "200",
     :source_uid => "8c18f2f2-7319-413f-ba3a-68bf4d487e5e",
     :external_tenant => "6089719"
   }
 }
-headers = {'x-rh-identity' => "#{x-rh-identity}"}
+headers = {'x-rh-identity' => ENV.fetch("X-RH-IDENTITY")}
 
 publish_opts = {
   :service => "platform.topological-inventory.operations-ansible-tower",

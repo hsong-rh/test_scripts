@@ -21,14 +21,12 @@ client = ManageIQ::Messaging::Client.open({
   :encoding => "json"
 })
 
-x-rh-identity = ENV.fetch("X-RH-IDENTITY")
-
 payload = { 
     :source_id => "200",
     :application_type_id => "1",
     :external_tenant => "6089719"
 }
-headers = {'x-rh-identity' => "#{x-rh-identity}"}
+headers = {'x-rh-identity' => ENV.fetch("X-RH-IDENTITY")}
 
 publish_opts = {
   :service => "platform.sources.event-stream",
