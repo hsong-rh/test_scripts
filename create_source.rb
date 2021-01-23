@@ -22,7 +22,7 @@ client = ManageIQ::Messaging::Client.open({
 })
 
 payload = { 
-    :source_id => "200",
+    :id => "200",
     :source_uid => SecureRandom.uuid,
     :source_ref => "10",
     :source_type_id => "3",
